@@ -1,5 +1,5 @@
 # boxpy
-boxpy is a utility for manipulating contents stored in box.com
+boxpy is a utility (written with [box python sdk](https://github.com/box/box-python-sdk)) for manipulating contents stored in box.com
 
 ## usage
 
