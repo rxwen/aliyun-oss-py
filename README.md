@@ -3,7 +3,7 @@ boxpy is a utility (written with [box python sdk](https://github.com/box/box-pyt
 
 ## usage
 
-boxpy -f cfg --overwrite SRC_FILE FOO/BAR/DST_FILE_NAME
+```boxpy -f cfg --overwrite SRC_FILE FOO/BAR/DST_FILE_NAME```
 
 The -f cfg flag is mandatory, which stores your account credential. boxpy is not able to upload file without these information. The content of cfg file is:
 ```
