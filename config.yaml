@@ -1,0 +1,12 @@
+# client_id : b0cvaoksdargnpoya4gkwkpuk0arocvg
+# client_secret : SOO2tMVAMbmkSsWMcrOEjZ5fhIo3hYGs
+
+#dvtest access key:
+#client_id : LTAIHmbb8SDSRuIu
+#client_secret : 9FZQV9A5HHKPu5l826UYT13s0o7UGc
+
+client_id: LTAIVtKvY4fMZysD
+client_secret: bK3HwPLR750JfLbrG6zlvvwNDXbE84
+oss_bucket: dvtest102-oss1
+oss_endpoint: oss-cn-shanghai.aliyuncs.com
+
