@@ -21,22 +21,24 @@ def main(argv):
         print sys.argv[0], "-f cfg [--overwrite] SRC_FILE FOO/BAR/DEST_FILE"
         return
 
-    print opts, args
     argDict = dict(opts)
     overwrite = '--overwrite' in argDict
     config_file = argDict.get('-f', "config.yaml")
 
     config = yaml.load(file(config_file))
-    print config
 
     utils.CLIENT_ID = config.get('client_id', utils.CLIENT_ID)
     utils.CLIENT_SECRET = config.get('client_secret', utils.CLIENT_SECRET)
     utils.OSS_BUCKET = config.get('oss_bucket', utils.OSS_BUCKET)
     utils.OSS_ENDPOINT = config.get('oss_endpoint', utils.OSS_ENDPOINT)
 
-    bucket = utils.oss_get_bucket()
-    utils.oss_put_file(bucket, args[0], args[1], overwrite)
-    print("Success!")
+    try:
+        bucket = utils.oss_get_bucket()
+        utils.oss_put_file(bucket, args[0], args[1], overwrite)
+        print("Success!")
+    except Exception, e:
+        print e
+        print("Failed!")
     return
 
 

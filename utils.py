@@ -23,6 +23,7 @@ def oss_put_file(bucket, src, dest, overwrite=True):
 
 
 def oss_convert_filename(filename, from_oss=True):
+    output = filename
     if from_oss:
         if filename[0] == '?':
             output = '/' + filename[1:]
