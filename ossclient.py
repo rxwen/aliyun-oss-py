@@ -17,7 +17,7 @@ def main(argv):
             args[1] = os.path.abspath(args[0])
     except:
         print "Usage:"
-        print sys.argv[0], "-f cfg [--overwrite] SRC_FILE FOO/BAR/DEST_FILE"
+        print sys.argv[0], "[-f config.yaml] [--overwrite] SRC_FILE FOO/BAR/DEST_FILE"
         return
 
     argDict = dict(opts)
