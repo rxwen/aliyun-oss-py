@@ -1,11 +1,11 @@
-# boxpy
-boxpy is a utility (written with [box python sdk](https://github.com/box/box-python-sdk)) for manipulating contents stored in box.com
+# ossclient
+ ossclient is a utility for manipulating contents stored in aliyun oss.
 
 ## usage
 
-```boxpy -f cfg --overwrite SRC_FILE FOO/BAR/DST_FILE_NAME```
+```ossclient -f cfg --overwrite SRC_FILE FOO/BAR/DST_FILE_NAME```
 
-The -f cfg flag is mandatory, which stores your account credential. boxpy is not able to upload file without these information. The content of cfg file is:
+The -f cfg flag is mandatory, which stores your account credential. ossclient is not able to upload file without these information. The content of cfg file is:
 ```
 client_id: lkjsdf234    # access_id
 client_secret: sdfsflsafj323   #access_secret
@@ -14,4 +14,4 @@ oss_endpoint: oss-cn-shanghai.aliyuncs.com      #oss endpoint
 
 ```
 
-boxpy will refuse to upload file if the  if the dst file already exists, unless --overwrite flag is given.
+ossclient will refuse to upload file if the  if the dst file already exists, unless --overwrite flag is given.
