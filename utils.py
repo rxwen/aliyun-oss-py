@@ -7,6 +7,25 @@ OSS_BUCKET = None
 OSS_ENDPOINT = None
 
 
+def load_config(filename):
+    config = {}
+    file = None
+    try:
+        file = open(filename, 'r')
+        for line in file.readlines():
+            pair = line.split(':')
+            if len(pair) < 2:
+                continue
+            config[pair[0].strip()] = pair[1].strip()
+    except:
+        print "error loading filename"
+    finally:
+        if file:
+            file.close()
+
+    return config
+
+
 def oss_get_bucket():
     auth = oss2.Auth(CLIENT_ID, CLIENT_SECRET)
     bucket = oss2.Bucket(auth, OSS_ENDPOINT, OSS_BUCKET)

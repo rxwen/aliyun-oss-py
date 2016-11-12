@@ -4,7 +4,6 @@
 import os
 import sys
 import getopt
-import yaml
 import utils
 
 
@@ -25,7 +24,8 @@ def main(argv):
     overwrite = '--overwrite' in argDict
     config_file = argDict.get('-f', "config.yaml")
 
-    config = yaml.load(file(config_file))
+    # config = yaml.load(file(config_file))
+    config = utils.load_config(config_file)
 
     utils.CLIENT_ID = config.get('client_id', utils.CLIENT_ID)
     utils.CLIENT_SECRET = config.get('client_secret', utils.CLIENT_SECRET)
