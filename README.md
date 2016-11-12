@@ -3,9 +3,9 @@
 
 ## usage
 
-```ossclient -f cfg --overwrite SRC_FILE FOO/BAR/DST_FILE_NAME```
+```ossclient -f cfg.yaml --overwrite SRC_FILE FOO/BAR/DST_FILE_NAME```
 
-The -f cfg flag is mandatory, which stores your account credential. ossclient is not able to upload file without these information. The content of cfg file is:
+The -f cfg flag is mandatory, which stores your account credential. ossclient is not able to upload file without these information. The content of cfg.yaml file is:
 ```
 client_id: lkjsdf234                            # access_id
 client_secret: sdfsflsafj323                    #access_secret

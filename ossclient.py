@@ -31,7 +31,6 @@ def main(argv):
 
     utils.CLIENT_ID = config.get('client_id', utils.CLIENT_ID)
     utils.CLIENT_SECRET = config.get('client_secret', utils.CLIENT_SECRET)
-    utils.ACCESS_TOKEN = config.get('access_token', utils.ACCESS_TOKEN)
     utils.OSS_BUCKET = config.get('oss_bucket', utils.OSS_BUCKET)
     utils.OSS_ENDPOINT = config.get('oss_endpoint', utils.OSS_ENDPOINT)
 
@@ -39,9 +38,6 @@ def main(argv):
     utils.oss_put_file(bucket, args[0], args[1], overwrite)
     print("Success!")
     return
-#    utils.authenticate()
-#    client = utils.auth_client()
-#    client.folder(folder_id='0',).create_subfolder('a')
 
 
 if __name__ == '__main__':
