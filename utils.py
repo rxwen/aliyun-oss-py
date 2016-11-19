@@ -55,5 +55,20 @@ def oss_convert_filename(filename, from_oss=True):
             output = ';' + filename[1:]
     return output
 
+
+def list_files(src_folder, dest_folder):
+    import os
+    ret = []
+    for item in os.listdir(src_folder):
+        node = os.path.join(src_folder, item)
+        dest_node = os.path.join(dest_folder, item)
+        if os.path.isfile(node):
+            ret.append((node, dest_node))
+        elif os.path.isdir(node):
+            sub_ret = list_files(node, dest_node)
+            ret.extend(sub_ret)
+    return ret
+
+
 if __name__ == '__main__':
     pass

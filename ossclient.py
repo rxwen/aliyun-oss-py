@@ -34,7 +34,13 @@ def main(argv):
 
     try:
         bucket = utils.oss_get_bucket()
-        utils.oss_put_file(bucket, args[0], args[1], overwrite)
+        if os.path.isdir(args[0]):
+            for pair in utils.list_files(args[0], args[1]):
+                utils.oss_put_file(bucket, pair[0], pair[1], overwrite)
+            # raise Exception("This is a folder!")
+            pass
+        else:
+            utils.oss_put_file(bucket, args[0], args[1], overwrite)
         print("Success!")
     except Exception, e:
         print e
