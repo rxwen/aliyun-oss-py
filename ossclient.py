@@ -20,7 +20,8 @@ def main(argv):
             args[1] = os.path.abspath(args[0])
     except:
         print "Usage:"
-        print sys.argv[0], "[-f config.yaml] [--overwrite] SRC_FILE FOO/BAR/DEST_FILE"
+        print "upload:   ", sys.argv[0], "[-f config.yaml] [--overwrite] SRC_FILE FOO/BAR/DEST_FILE"
+        print "download: ", sys.argv[0], "[-f config.yaml] [-d] SRC_FILE_ON_ALIYUN LOCAL/FOO/BAR/DEST_FILE"
         return
 
     argDict = dict(opts)
@@ -64,11 +65,12 @@ def main(argv):
         else:
             if os.path.isdir(args[0]):
                 for pair in utils.list_files(args[0], args[1]):
-                    print "uploading:", pair[0]
-                    utils.oss_put_file(bucket, pair[0], pair[1], overwrite)
+                    print "uploading:", pair[0], " to ", "http://%s/%s"%(utils.OSS_ENDPOINT,pair[1])
+                    utils.uploadoss_put_file(bucket, pair[0], pair[1], overwrite)
                 # raise Exception("This is a folder!")
                 pass
             else:
+                print "uploading:", args[0], " to ", "http://%s/%s"%(utils.OSS_ENDPOINT,args[1])
                 utils.oss_put_file(bucket, args[0], args[1], overwrite)
         print("Success!")
     except Exception, e:
