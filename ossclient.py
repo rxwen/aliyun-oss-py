@@ -22,11 +22,12 @@ def main(argv):
         print "Usage:"
         print "upload:   ", sys.argv[0], "[-f config.yaml] [--overwrite] SRC_FILE FOO/BAR/DEST_FILE"
         print "download: ", sys.argv[0], "[-f config.yaml] [-d] SRC_FILE_ON_ALIYUN LOCAL/FOO/BAR/DEST_FILE"
+        print "   -f default to ~/.ossclient.yml if not specified"
         return
 
     argDict = dict(opts)
     overwrite = '--overwrite' in argDict
-    config_file = argDict.get('-f', "config.yaml")
+    config_file = argDict.get('-f', os.path.expanduser("~/.ossclient.yml"))
     download = argDict.get('-d') is not None
 
     # config = yaml.load(file(config_file))

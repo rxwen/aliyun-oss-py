@@ -17,8 +17,8 @@ def load_config(filename):
             if len(pair) < 2:
                 continue
             config[pair[0].strip()] = pair[1].strip()
-    except:
-        print "error loading filename"
+    except Exception as err:
+        print "error loading filename ", err
     finally:
         if file:
             file.close()
