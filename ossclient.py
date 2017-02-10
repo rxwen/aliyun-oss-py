@@ -66,12 +66,12 @@ def main(argv):
         else:
             if os.path.isdir(args[0]):
                 for pair in utils.list_files(args[0], args[1]):
-                    print "uploading:", pair[0], " to ", "http://%s/%s"%(utils.OSS_ENDPOINT,pair[1])
+                    print "uploading:", pair[0], " to ", "http://%s.%s/%s"%(utils.OSS_BUCKET,utils.OSS_ENDPOINT,pair[1])
                     utils.uploadoss_put_file(bucket, pair[0], pair[1], overwrite)
                 # raise Exception("This is a folder!")
                 pass
             else:
-                print "uploading:", args[0], " to ", "http://%s/%s"%(utils.OSS_ENDPOINT,args[1])
+                print "uploading:", args[0], " to ", "http://%s.%s/%s"%(utils.OSS_BUCKET,utils.OSS_ENDPOINT,args[1])
                 utils.oss_put_file(bucket, args[0], args[1], overwrite)
         print("Success!")
     except Exception, e:
