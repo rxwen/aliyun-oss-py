@@ -17,7 +17,7 @@ def main(argv):
             raise Exception()
             pass
         if args[1] == '.':
-            args[1] = os.path.abspath(args[0])
+            args[1] = os.path.abspath(args[1])
     except:
         print "Usage:"
         print "upload:   ", sys.argv[0], "[-f config.yaml] [--overwrite] SRC_FILE FOO/BAR/DEST_FILE"
